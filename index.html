@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanigiri - Taste of Andhra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+              script: ['Dancing Script', 'cursive'],
+            },
+            colors: {
+              primary: '#ECA848',
+              'primary-dark': '#D59235',
+              olive: '#768436',
+              'olive-dark': '#5F6B28',
+              cream: '#F9F7F2',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom utility for the wave shape */
+      .wave-clip {
+        clip-path: ellipse(150% 100% at 50% 100%);
+      }
+      .card-curve {
+         border-top-left-radius: 50% 20px;
+         border-top-right-radius: 50% 20px;
+      }
+      
+      /* Premium Custom Scrollbar */
+      .custom-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: #e5e7eb transparent;
+      }
+      
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+        margin: 4px;
+      }
+      
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #e5e7eb;
+        border-radius: 20px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+      }
+      
+      /* Show scrollbar thumb on hover of the container for cleaner look */
+      .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+        background-color: #d1d5db;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: #ECA848; /* Primary color */
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-cream text-gray-800 antialiased">
+    <div id="root"></div>
+  </body>
+</html>
