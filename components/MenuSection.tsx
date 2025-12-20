@@ -1,115 +1,97 @@
+
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Award, Truck, ShieldCheck } from 'lucide-react';
+// Added ArrowRight to the lucide-react imports to fix the error on line 111
+import { ChevronLeft, ChevronRight, Sparkles, ArrowRight } from 'lucide-react';
 import DishCard from './DishCard';
 import { Dish } from '../types';
 
 const dishes: Dish[] = [
   {
     id: '1',
-    prefix: 'Jeera',
-    name: 'Chawal',
-    price: 180,
-    originalPrice: 200,
-    rating: 4.5,
-    description: 'Aromatic basmati rice tempered with cumin seeds and mild spices. A perfect accompaniment.',
-    image: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=400&q=80',
-    theme: 'olive'
+    prefix: 'Special',
+    name: 'Mutton Biryani',
+    price: 450,
+    originalPrice: 520,
+    rating: 4.9,
+    description: 'Slow-cooked succulent mutton pieces layered with long-grain basmati rice and signature hand-ground spices.',
+    image: 'https://images.unsplash.com/photo-1633945274407-8472523020d3?auto=format&fit=crop&w=400&q=80',
+    theme: 'orange'
   },
   {
     id: '2',
-    prefix: 'Kadai',
-    name: 'Chicken',
-    price: 220,
-    originalPrice: 260,
-    rating: 4.5,
-    description: 'Spicy, flavorful chicken cooked in a traditional iron wok with bell peppers and tomatoes.',
-    image: 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=400&q=80',
-    theme: 'orange'
-  },
-  {
-    id: '3',
-    prefix: 'Palak',
-    name: 'Paneer',
-    price: 200,
-    originalPrice: 220,
-    rating: 4.5,
-    description: 'Fresh cottage cheese cubes simmered in a smooth, creamy, and delicious spinach gravy.',
-    image: 'https://images.unsplash.com/photo-1585937421612-70a008356f36?auto=format&fit=crop&w=400&q=80',
+    prefix: 'Crispy',
+    name: 'Chicken 65',
+    price: 280,
+    originalPrice: 320,
+    rating: 4.7,
+    description: 'A spicy, deep-fried chicken starter from Andhra. Tempered with curry leaves and green chilies.',
+    image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=400&q=80',
     theme: 'olive'
   },
   {
-    id: '4',
-    name: 'Hyderabadi',
-    prefix: 'Dum',
-    price: 350,
-    originalPrice: 400,
-    rating: 4.8,
-    description: 'The world-famous biryani from Hyderabad. Rich, aromatic and absolutely authentic.',
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=400&q=80',
+    id: '3',
+    prefix: 'Creamy',
+    name: 'Butter Naan',
+    price: 45,
+    originalPrice: 60,
+    rating: 4.5,
+    description: 'Freshly baked tandoori bread brushed with pure clarified butter. Soft and charred to perfection.',
+    image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=400&q=80',
     theme: 'orange'
+  },
+  {
+    id: '4',
+    prefix: 'Zesty',
+    name: 'Prawn Curry',
+    price: 420,
+    originalPrice: 480,
+    rating: 4.8,
+    description: 'Fresh coastal prawns simmered in a thick, spicy gravy with tamarind and toasted coconut.',
+    image: 'https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=400&q=80',
+    theme: 'olive'
   }
 ];
 
-const categories = ["Popular", "Biryani", "Starters", "Curries", "Rice", "Breads", "Desserts"];
+const categories = ["Best Sellers", "Biryani", "Curries", "Starters", "Breads", "Desserts"];
 
 const MenuSection: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState("Popular");
+  const [activeCategory, setActiveCategory] = useState("Best Sellers");
 
   return (
-    <section className="relative w-full pb-24 overflow-hidden bg-white">
-      
-      {/* Features Strip */}
-      <div className="max-w-6xl mx-auto px-6 mb-16 -mt-10 relative z-20">
-         <div className="bg-white rounded-3xl shadow-xl shadow-gray-200 border border-gray-100 p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex items-center gap-4 group cursor-pointer">
-               <div className="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <Award size={32} />
-               </div>
-               <div>
-                  <h3 className="font-bold text-gray-900 text-lg">Top Quality</h3>
-                  <p className="text-sm text-gray-500">Fresh ingredients daily</p>
-               </div>
-            </div>
-            <div className="flex items-center gap-4 group cursor-pointer">
-               <div className="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <ShieldCheck size={32} />
-               </div>
-               <div>
-                  <h3 className="font-bold text-gray-900 text-lg">100% Halal</h3>
-                  <p className="text-sm text-gray-500">Certified standards</p>
-               </div>
-            </div>
-            <div className="flex items-center gap-4 group cursor-pointer">
-               <div className="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <Truck size={32} />
-               </div>
-               <div>
-                  <h3 className="font-bold text-gray-900 text-lg">Fast Delivery</h3>
-                  <p className="text-sm text-gray-500">Hot food in 30 mins</p>
-               </div>
-            </div>
-         </div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4">
+    <section className="relative w-full pt-12 pb-32 overflow-hidden bg-white">
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         
         {/* Header */}
-        <div className="text-center mb-12">
-           <span className="text-primary font-script text-3xl md:text-4xl block mb-2">Discover</span>
-           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Menu</h2>
-           <p className="max-w-2xl mx-auto text-gray-500">Explore our curated list of authentic Andhra dishes, made with love and traditional spices.</p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+           <div className="max-w-xl">
+              <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-[0.2em] text-xs mb-4">
+                 <Sparkles size={16} /> Signature Flavors
+              </div>
+              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                 From Our <span className="text-olive">Chef's</span> <br/> 
+                 Heart to Your Table
+              </h2>
+           </div>
+           <div className="flex gap-4">
+              <button className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-all shadow-sm">
+                <ChevronLeft size={24} />
+              </button>
+              <button className="w-14 h-14 rounded-2xl bg-gray-900 text-white flex items-center justify-center hover:bg-primary transition-all shadow-xl shadow-gray-200">
+                <ChevronRight size={24} />
+              </button>
+           </div>
         </div>
 
-        {/* Categories */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {/* Categories Bar */}
+        <div className="flex overflow-x-auto pb-4 gap-3 mb-16 scrollbar-hide">
            {categories.map((cat) => (
               <button 
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all ${
+                className={`px-8 py-3.5 rounded-2xl text-sm font-bold whitespace-nowrap transition-all duration-300 border ${
                    activeCategory === cat 
-                   ? 'bg-gray-900 text-white shadow-lg transform scale-105' 
-                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                   ? 'bg-gray-900 text-white border-gray-900 shadow-xl shadow-gray-200' 
+                   : 'bg-white text-gray-400 border-gray-100 hover:border-gray-300 hover:text-gray-900'
                 }`}
               >
                  {cat}
@@ -117,28 +99,18 @@ const MenuSection: React.FC = () => {
            ))}
         </div>
 
-        {/* Carousel Arrows */}
-        <div className="absolute top-1/2 left-4 lg:left-0 transform -translate-y-1/2 z-20 hidden lg:block">
-           <button className="w-12 h-12 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-all">
-             <ChevronLeft size={24} />
-           </button>
-        </div>
-        <div className="absolute top-1/2 right-4 lg:right-0 transform -translate-y-1/2 z-20 hidden lg:block">
-           <button className="w-12 h-12 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-all">
-             <ChevronRight size={24} />
-           </button>
-        </div>
-
-        {/* Grid */}
-        <div className="flex flex-wrap justify-center gap-8 md:gap-10 pb-10">
+        {/* Grid Container */}
+        <div className="flex flex-wrap justify-center lg:justify-start gap-y-20 gap-x-8">
           {dishes.map((dish) => (
             <DishCard key={dish.id} dish={dish} />
           ))}
         </div>
         
-        <div className="text-center mt-8">
-           <button className="text-primary font-bold text-sm tracking-widest uppercase border-b-2 border-primary pb-1 hover:text-primary-dark transition-colors">
-              View Full Menu
+        <div className="mt-24 text-center">
+           <p className="text-gray-400 text-sm font-medium mb-6">Explore over 120+ authentic items from our full menu</p>
+           <button className="group inline-flex items-center gap-3 px-10 py-4 bg-white border-2 border-gray-900 rounded-2xl text-gray-900 font-bold hover:bg-gray-900 hover:text-white transition-all shadow-lg active:scale-95">
+              BROWSE FULL MENU
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
            </button>
         </div>
       </div>
